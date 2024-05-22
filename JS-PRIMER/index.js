@@ -234,3 +234,207 @@ console.log(number); //The value of number variable outside the function remains
 console.log(multiplier(10,30)); //Prints 300 to the console
 console.log(multiplier(10,30,10)); //Prints 3000 to the console
 */
+
+//Function scope variables
+/*var accumulatedTotal = 0; //Declare and initialize a global variable. 
+//Declare function named sum that expects two parameters named number1 and number2. 
+function sum(number1, number2){ 
+    //The variables named total, number1 and number2 below are function scope variables. 
+    //They are not visible from outside the function.  
+    var total = number1 + number2; 
+    //Update the global variable named accumulatedTotal. 
+    //Even though not declared within the function, it is visible. 
+    accumulatedTotal = accumulatedTotal + total;  
+    return total; 
+} 
+console.log(sum(2,3)); //Call sum() function and print to console the total returned. 
+console.log(sum(10,20)); //Call sum() function and print to console the total returned. 
+console.log(accumulatedTotal); //Show the latest value held in the global variable. This should return 35
+*/
+
+//Array literal
+//Declare a variable named vehicles and assign an array literal that contains three elements 
+/*var vehicles = ["car","lorry","trailer"];  
+console.log(vehicles); //Prints out the array literal [ 'car', 'lorry', 'trailer' ] 
+//Declare a variable named basket and assign an empty array literal. 
+var basket = [ ]; 
+console.log(basket); //Prints out the array literal [ ]  
+*/
+
+//Declare a variable named myExpressions and assign an array literal which contains expressions. 
+/*var myExpressions = ["car", 2+3, 10, true];  //The second element includes a plus operation 
+console.log(myExpressions); //Prints out [ 'car', 5, 10, true] 
+*/
+
+//Accessing array elements
+/*console.log(myExpressions[0]); //Prints out 'car' 
+console.log(myExpressions[1]); //Prints out 5 
+console.log(myExpressions[2]); //Prints out 10 
+console.log(myExpressions[3]); //Prints out true 
+myExpressions[3] = false; //Change the expression at position 3. 
+console.log(myExpressions[3]); //Prints out false
+*/
+
+//Array literals can also contain undefined elements as shown below
+/*var myExpressions = ["car", , 10, true];  //The second element (i.e. index position 1), is undefined 
+console.log(myExpressions[1]); //Prints out undefined 
+*/
+
+//Object literal - contains a list of other expressions in curly braces
+/*var myObject = { 
+    name: { //nested object: an object in an object
+    firstName : "Pius", 
+    surname: "Onobhayedo" 
+    }, 
+    expertise: "Software design and development", 
+    languages: ["Python","JavaScript","Java","C++"], 
+    isRetired: false,
+    favouriteCombination: 3 + 3
+}
+
+//Accessing object properties
+console.log(myObject.name); //Prints out { firstName: 'Pius', surname: 'Onobhayedo' }. 
+console.log(myObject['name']); //Also prints out { firstName: 'Pius', surname: 'Onobhayedo' }. 
+console.log(myObject.expertise); //Prints out Software design and development 
+console.log(myObject['expertise']); //Also prints out Software design and development 
+console.log(myObject.languages); //Prints out [ 'Python', 'JavaScript', 'Java', 'C++' ] 
+console.log(myObject['languages']); //Also prints out [ 'Python', 'JavaScript', 'Java', 'C++' ] 
+console.log(myObject.isRetired); //Prints out false 
+console.log(myObject['isRetired']); //Also prints out false 
+console.log(myObject.favouriteCombination); //Prints out 6 
+console.log(myObject['favouriteCombination']); //Also prints out 6 
+
+//Accessing nested objects 
+console.log(myObject.name.firstName); //Prints out Pius. 
+console.log(myObject['name']['firstName']); //Also prints out Pius. 
+*/
+
+/*myObject.favouriteCombination = 9 + 9; 
+console.log(myObject.favouriteCombination); //Prints out 18 
+
+//Adding new property to an existing object
+myObject.newProperty = "another property added"; //Add a new property named newProperty 
+console.log(myObject); //Prints out the string, another property added 
+*/
+
+//The delete and in operators for objects
+/*
+var phones = { 
+    make: 'Samsung', 
+    model: 'S7', 
+    cost: 500 
+} 
+console.log('make' in phones); //Prints out true 
+delete phones.make; //Delete property phones.make 
+console.log('make' in phones); //Prints out false
+*/
+
+//User-created object blueprints
+/*function Person(firstName, lastName, height, weight){ 
+    //Below are properties 
+    this.firstName = firstName; 
+    this.lastName = lastName; 
+    this.height = height; 
+    this.weight = weight; 
+    //Below is a method 
+    this.getFullName = function(){ return this.firstName + " " + this.lastName} 
+}
+
+
+//Instantiating an object
+var person1 = new Person("Pius", "Onobhayedo",1.72, 80); 
+var person2 = new Person("Mary", "Joseph", 1.7, 70);
+
+console.log (person1.firstName); //Prints out Pius 
+console.log (person1.getFullName()); //Prints out Pius Onobhayedo 
+console.log (person2.firstName); //Prints out Mary 
+console.log (person2.getFullName()); //Prints out Mary Joseph 
+
+
+//Differentiating between constructor and prototype in classical JavaScript
+person1.complexion = "light brown"; //Specify complexion value for object instance, person1. 
+console.log(person1.complexion);  //Prints out light brown. 
+console.log(person2.complexion); //Prints out the default value for complexion i.e. dark brown. 
+*/
+
+//Similarly
+/*Person.prototype.getComplexion = function ( ){ 
+    return this.complexion 
+} 
+Person.prototype.setComplexion = function (complexion){ 
+    this.complexion = complexion; 
+} 
+person1.setComplexion('black'); //Use the method just added to blueprint person 
+console.log(person1.getComplexion( )); //Prints out black. 
+*/
+
+//Built-in object blueprints - Math
+Math.E; //The static property E holds the value of Euler’s number i.e. 2.718281828459045. 
+Math.PI; //The static property PI holds the value of Pi i.e. 3.141592653589793. 
+Math.cos(45); //Method returns the cosine of number passed as argument. 
+Math.abs(-30); //Method returns the absolute number equivalent of argument. 
+Math.random( ); //Method returns random floating-point number between 0 and 1, inclusive of 0 and exclusive of 1. 
+Math.max(10,5,60); //Method returns the maximum number among the arguments passed.  
+Math.min(10,5,60); //Method returns the minimum number among the arguments passed.
+
+//Built-in object blueprints - Date
+/*
+var today = new Date(); //Get today’s date 
+//Instantiate new Date passing year, month-index and day in numbers 
+var birthday = new Date(1980,4,30); //Note that month index is 0-11 for Jan-Dec 
+//Instantiate new Date passing equivalent datetime string with date same as above 
+var birthday = new Date('May 30, 1980 19:00:00'); 
+//Instantiate new Date passing date and time using numbers 
+var birthday = new Date(1980, 4, 30, 19, 0, 0);//Passing year, month-index, day, hour, min, sec as numbers 
+//Below is a simple function that calculates present age 
+function calculateAge(birthday){ 
+    var today = new Date(); 
+    var difference = today - birthday; //Returns equivalent of time elapsed since 1970 i.e. epoch time
+    //Get the equivalent year for difference
+    var yearEquivalent = new Date(difference).getFullYear();
+    //Subtract 1970 to get age
+    return yearEquivalent - 1970;
+}
+
+//Invoke function calculateAge()
+var birthday = new Date (1980,12,30);
+console.log(calculateAge(birthday)); //Prints out birthday
+*/
+
+/*function sleep(milliseconds) { 
+    console.log("Going to sleep for " + milliseconds + " milliseconds...") 
+    var begin = new Date().getTime(); 
+    do{ 
+        nextTime = new Date().getTime(); 
+    }while(nextTime - begin < milliseconds) 
+    console.log("Sleep over"); 
+} 
+//Call sleep 
+sleep(3000); 
+
+*/
+/*
+//RegExp
+var re = new RegExp('xyz'); //'xyz' is the pattern to be matched
+var re = /xyz/;
+var searchString = "Locate xyz pattern in this text. The xyz could be in XYZ location"; 
+//Simply check if pattern is in searchString using test() method. 
+console.log(re.test(searchString)); //Should return true as xyz pattern is present in searchString. 
+//Find index position using exec() method 
+console.log(re.exec(searchString)); //Returns an array containing pattern, index and input as shown in comment below
+/*[ 'xyz', 
+index: 7, 
+input: 'Locate xyz pattern in this text. The xyz could be in XYZ location' ]*/ 
+//Find index position using search() method of String object passing the pattern as argument. 
+/*
+console.log(searchString.search(re)); //Returns index position.
+*/
+
+/*var result; 
+while((result = re.exec(searchString))!= null){ //loop until no more match 
+    //display the index found and the string 
+    console.log("Index position " + result.index + " contains " + result[0]); 
+}
+*/
+
+//JSON String
